@@ -1,0 +1,589 @@
+2025-06-24 15:13:00,999 INFO   ||  [Worker clientId=connect-1, groupId=1] Tasks [persons-jdbc-sink-0] configs updated   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:13:01,002 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:13:01,006 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:13:01,015 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=5, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:13:01,024 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=5, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:13:01,024 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 5 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=7, connectorIds=[persons-jdbc-sink, postgres-connector], taskIds=[persons-jdbc-sink-0, postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:13:01,024 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 7   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:13:01,025 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:13:01,031 INFO   ||  Creating task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:13:01,032 INFO   ||  ConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	transforms = [unwrap]
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+   [org.apache.kafka.connect.runtime.ConnectorConfig]
+2025-06-24 15:13:01,033 INFO   ||  EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+--
+2025-06-24 15:13:01,043 INFO   ||  Instantiated task persons-jdbc-sink-0 with version 2.5.4.Final of type io.debezium.connector.jdbc.JdbcSinkConnectorTask   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:13:01,043 INFO   ||  JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:13:01,043 INFO   ||  JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:13:01,043 INFO   ||  Set up the key converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:13:01,043 INFO   ||  Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:13:01,043 INFO   ||  Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task persons-jdbc-sink-0 using the worker config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:13:01,049 WARN   ||  The deleted record handling configs "drop.tombstones" and "delete.handling.mode" have been deprecated, please use "delete.tombstone.handling.mode" instead.   [io.debezium.transforms.AbstractExtractNewRecordState]
+2025-06-24 15:13:01,050 INFO   ||  Initializing: org.apache.kafka.connect.runtime.TransformationChain{io.debezium.transforms.ExtractNewRecordState}   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:13:01,050 INFO   ||  SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	topics = [dbz.public.persons]
+	topics.regex = 
+--
+	client.id = connector-consumer-persons-jdbc-sink-0
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = connect-persons-jdbc-sink
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+--
+2025-06-24 15:13:01,070 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Subscribed to topic(s): dbz.public.persons   [org.apache.kafka.clients.consumer.KafkaConsumer]
+2025-06-24 15:13:01,076 ERROR  ||  When using UPSERT, please define 'primary.key.mode' and 'primary.key.fields'.   [io.debezium.connector.jdbc.JdbcSinkConnectorTask]
+2025-06-24 15:13:01,078 ERROR  ||  WorkerSinkTask{id=persons-jdbc-sink-0} Task threw an uncaught and unrecoverable exception. Task is being killed and will not recover until manually restarted   [org.apache.kafka.connect.runtime.WorkerTask]
+org.apache.kafka.connect.errors.ConnectException: Error configuring an instance of JdbcSinkConnectorConfig; check the logs for details
+	at io.debezium.connector.jdbc.JdbcSinkConnectorConfig.validate(JdbcSinkConnectorConfig.java:537)
+	at io.debezium.connector.jdbc.JdbcSinkConnectorTask.start(JdbcSinkConnectorTask.java:73)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.initializeAndStart(WorkerSinkTask.java:329)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:202)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:259)
+	at org.apache.kafka.connect.runtime.isolation.Plugins.lambda$withClassLoader$1(Plugins.java:236)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2025-06-24 15:13:01,084 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Resetting generation and member id due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:13:01,084 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Request joining group due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:13:01,086 INFO   ||  Metrics scheduler closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:13:01,086 INFO   ||  Closing reporter org.apache.kafka.common.metrics.JmxReporter   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:13:01,086 INFO   ||  Metrics reporters closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:13:01,087 INFO   ||  App info kafka.consumer for connector-consumer-persons-jdbc-sink-0 unregistered   [org.apache.kafka.common.utils.AppInfoParser]
+2025-06-24 15:13:06,636 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:13:06 +0000] "GET /connectors/persons-jdbc-sink/status HTTP/1.1" 200 1266 "-" "curl/8.9.1" 21   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:13:18,867 INFO   ||  WorkerSourceTask{id=postgres-connector-0} Committing offsets for 1 acknowledged messages   [org.apache.kafka.connect.runtime.WorkerSourceTask]
+2025-06-24 15:14:44,897 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:14:44 +0000] "GET /connectors/persons-jdbc-sink/status HTTP/1.1" 200 1266 "-" "curl/8.9.1" 22   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:15:33,935 INFO   ||  Successfully processed removal of connector 'persons-jdbc-sink'   [org.apache.kafka.connect.storage.KafkaConfigBackingStore]
+2025-06-24 15:15:33,938 INFO   ||  [Worker clientId=connect-1, groupId=1] Connector persons-jdbc-sink config removed   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:33,938 INFO   ||  [Worker clientId=connect-1, groupId=1] Handling connector-only config update by stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:33,939 INFO   ||  Stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:33,940 INFO   ||  Scheduled shutdown for WorkerConnector{id=persons-jdbc-sink}   [org.apache.kafka.connect.runtime.WorkerConnector]
+2025-06-24 15:15:33,943 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:15:33 +0000] "DELETE /connectors/persons-jdbc-sink HTTP/1.1" 204 0 "-" "curl/8.9.1" 88   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:15:33,945 INFO   ||  Completed shutdown for WorkerConnector{id=persons-jdbc-sink}   [org.apache.kafka.connect.runtime.WorkerConnector]
+2025-06-24 15:15:33,952 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:33,952 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:33,968 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=6, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:33,981 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=6, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:33,988 INFO   ||  Stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:33,989 WARN   ||  Ignoring stop request for unowned connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:33,989 WARN   ||  Ignoring await stop request for non-present connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:33,989 INFO   ||  Stopping task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:34,028 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished stopping tasks in preparation for rebalance   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:34,031 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished flushing status backing store in preparation for rebalance   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:34,031 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 6 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=9, connectorIds=[postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[persons-jdbc-sink], revokedTaskIds=[persons-jdbc-sink-0], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:34,032 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 9   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:34,034 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished starting connectors and tasks   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:34,034 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:34,034 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:34,047 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=7, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:34,061 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=7, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:34,062 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 7 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=9, connectorIds=[postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:34,063 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 9   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:34,063 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished starting connectors and tasks   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:36,278 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:15:36 +0000] "GET /connectors/persons-jdbc-sink/status HTTP/1.1" 404 78 "-" "curl/8.9.1" 52   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:15:49,225 INFO   ||  AbstractConfig values: 
+   [org.apache.kafka.common.config.AbstractConfig]
+2025-06-24 15:15:49,252 INFO   ||  [Worker clientId=connect-1, groupId=1] Connector persons-jdbc-sink config updated   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:49,253 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,253 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,260 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:15:49 +0000] "POST /connectors HTTP/1.1" 201 960 "-" "curl/8.9.1" 60   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:15:49,265 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=8, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,277 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=8, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,277 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 8 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=10, connectorIds=[persons-jdbc-sink, postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:49,277 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 10   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+--
+2025-06-24 15:15:49,321 INFO   ||  [Worker clientId=connect-1, groupId=1] Tasks [persons-jdbc-sink-0] configs updated   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:49,325 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,328 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,335 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=9, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,343 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=9, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:15:49,343 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 9 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=12, connectorIds=[persons-jdbc-sink, postgres-connector], taskIds=[persons-jdbc-sink-0, postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:49,343 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 12   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:49,344 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:15:49,346 INFO   ||  Creating task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:49,347 INFO   ||  ConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	transforms = [unwrap]
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+   [org.apache.kafka.connect.runtime.ConnectorConfig]
+2025-06-24 15:15:49,348 INFO   ||  EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+--
+2025-06-24 15:15:49,348 INFO   ||  Instantiated task persons-jdbc-sink-0 with version 2.5.4.Final of type io.debezium.connector.jdbc.JdbcSinkConnectorTask   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:49,348 INFO   ||  JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:15:49,348 INFO   ||  JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:15:49,348 INFO   ||  Set up the key converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:49,348 INFO   ||  Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:49,349 INFO   ||  Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task persons-jdbc-sink-0 using the worker config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:49,350 WARN   ||  The deleted record handling configs "drop.tombstones" and "delete.handling.mode" have been deprecated, please use "delete.tombstone.handling.mode" instead.   [io.debezium.transforms.AbstractExtractNewRecordState]
+2025-06-24 15:15:49,351 INFO   ||  Initializing: org.apache.kafka.connect.runtime.TransformationChain{io.debezium.transforms.ExtractNewRecordState}   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:15:49,351 INFO   ||  SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	topics = [dbz.public.persons]
+	topics.regex = 
+--
+	client.id = connector-consumer-persons-jdbc-sink-0
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = connect-persons-jdbc-sink
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+--
+2025-06-24 15:15:49,371 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Subscribed to topic(s): dbz.public.persons   [org.apache.kafka.clients.consumer.KafkaConsumer]
+2025-06-24 15:15:49,376 ERROR  ||  When using UPSERT, please define 'primary.key.mode' and 'primary.key.fields'.   [io.debezium.connector.jdbc.JdbcSinkConnectorTask]
+2025-06-24 15:15:49,377 ERROR  ||  WorkerSinkTask{id=persons-jdbc-sink-0} Task threw an uncaught and unrecoverable exception. Task is being killed and will not recover until manually restarted   [org.apache.kafka.connect.runtime.WorkerTask]
+org.apache.kafka.connect.errors.ConnectException: Error configuring an instance of JdbcSinkConnectorConfig; check the logs for details
+	at io.debezium.connector.jdbc.JdbcSinkConnectorConfig.validate(JdbcSinkConnectorConfig.java:537)
+	at io.debezium.connector.jdbc.JdbcSinkConnectorTask.start(JdbcSinkConnectorTask.java:73)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.initializeAndStart(WorkerSinkTask.java:329)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:202)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:259)
+	at org.apache.kafka.connect.runtime.isolation.Plugins.lambda$withClassLoader$1(Plugins.java:236)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2025-06-24 15:15:49,378 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Resetting generation and member id due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:15:49,378 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Request joining group due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:15:49,379 INFO   ||  Metrics scheduler closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:15:49,379 INFO   ||  Closing reporter org.apache.kafka.common.metrics.JmxReporter   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:15:49,379 INFO   ||  Metrics reporters closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:15:49,381 INFO   ||  App info kafka.consumer for connector-consumer-persons-jdbc-sink-0 unregistered   [org.apache.kafka.common.utils.AppInfoParser]
+2025-06-24 15:15:52,414 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:15:52 +0000] "GET /connectors/persons-jdbc-sink/status HTTP/1.1" 200 1266 "-" "curl/8.9.1" 10   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:16:55,596 INFO   ||  [AdminClient clientId=1-shared-admin] Node -1 disconnected.   [org.apache.kafka.clients.NetworkClient]
+2025-06-24 15:17:06,632 INFO   ||  Successfully processed removal of connector 'persons-jdbc-sink'   [org.apache.kafka.connect.storage.KafkaConfigBackingStore]
+2025-06-24 15:17:06,633 INFO   ||  [Worker clientId=connect-1, groupId=1] Connector persons-jdbc-sink config removed   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,634 INFO   ||  [Worker clientId=connect-1, groupId=1] Handling connector-only config update by stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,634 INFO   ||  Stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:06,634 INFO   ||  Scheduled shutdown for WorkerConnector{id=persons-jdbc-sink}   [org.apache.kafka.connect.runtime.WorkerConnector]
+2025-06-24 15:17:06,636 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:17:06 +0000] "DELETE /connectors/persons-jdbc-sink HTTP/1.1" 204 0 "-" "curl/8.9.1" 76   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:17:06,636 INFO   ||  Completed shutdown for WorkerConnector{id=persons-jdbc-sink}   [org.apache.kafka.connect.runtime.WorkerConnector]
+2025-06-24 15:17:06,642 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,643 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,656 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=10, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,672 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=10, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,673 INFO   ||  Stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:06,673 INFO   ||  Stopping task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:06,673 WARN   ||  Ignoring stop request for unowned connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:06,673 WARN   ||  Ignoring await stop request for non-present connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:06,675 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished stopping tasks in preparation for rebalance   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,676 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished flushing status backing store in preparation for rebalance   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,677 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 10 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=14, connectorIds=[postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[persons-jdbc-sink], revokedTaskIds=[persons-jdbc-sink-0], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,679 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 14   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,679 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished starting connectors and tasks   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,679 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,679 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,748 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=11, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,770 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=11, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:06,770 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 11 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=14, connectorIds=[postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,771 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 14   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:06,771 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished starting connectors and tasks   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,037 INFO   ||  AbstractConfig values: 
+   [org.apache.kafka.common.config.AbstractConfig]
+2025-06-24 15:17:10,072 INFO   ||  [Worker clientId=connect-1, groupId=1] Connector persons-jdbc-sink config updated   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,074 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,074 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,076 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:17:10 +0000] "POST /connectors HTTP/1.1" 201 865 "-" "curl/8.9.1" 51   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:17:10,083 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=12, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,092 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=12, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,092 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 12 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=15, connectorIds=[persons-jdbc-sink, postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,092 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 15   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,092 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+--
+2025-06-24 15:17:10,127 INFO   ||  [Worker clientId=connect-1, groupId=1] Tasks [persons-jdbc-sink-0] configs updated   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,131 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,135 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,159 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=13, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,189 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=13, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:10,190 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 13 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=17, connectorIds=[persons-jdbc-sink, postgres-connector], taskIds=[persons-jdbc-sink-0, postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,190 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 17   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,190 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:10,193 INFO   ||  Creating task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:10,195 INFO   ||  ConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	transforms = [unwrap]
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+   [org.apache.kafka.connect.runtime.ConnectorConfig]
+2025-06-24 15:17:10,195 INFO   ||  EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+--
+2025-06-24 15:17:10,195 INFO   ||  Instantiated task persons-jdbc-sink-0 with version 2.5.4.Final of type io.debezium.connector.jdbc.JdbcSinkConnectorTask   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:10,196 INFO   ||  JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:17:10,196 INFO   ||  JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:17:10,197 INFO   ||  Set up the key converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:10,197 INFO   ||  Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:10,198 INFO   ||  Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task persons-jdbc-sink-0 using the worker config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:10,199 WARN   ||  The deleted record handling configs "drop.tombstones" and "delete.handling.mode" have been deprecated, please use "delete.tombstone.handling.mode" instead.   [io.debezium.transforms.AbstractExtractNewRecordState]
+2025-06-24 15:17:10,200 INFO   ||  Initializing: org.apache.kafka.connect.runtime.TransformationChain{io.debezium.transforms.ExtractNewRecordState}   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:10,200 INFO   ||  SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	topics = [dbz.public.persons]
+	topics.regex = 
+--
+	client.id = connector-consumer-persons-jdbc-sink-0
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = connect-persons-jdbc-sink
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+--
+2025-06-24 15:17:10,218 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Subscribed to topic(s): dbz.public.persons   [org.apache.kafka.clients.consumer.KafkaConsumer]
+2025-06-24 15:17:10,222 ERROR  ||  When using UPSERT, please define 'primary.key.mode' and 'primary.key.fields'.   [io.debezium.connector.jdbc.JdbcSinkConnectorTask]
+2025-06-24 15:17:10,222 ERROR  ||  WorkerSinkTask{id=persons-jdbc-sink-0} Task threw an uncaught and unrecoverable exception. Task is being killed and will not recover until manually restarted   [org.apache.kafka.connect.runtime.WorkerTask]
+org.apache.kafka.connect.errors.ConnectException: Error configuring an instance of JdbcSinkConnectorConfig; check the logs for details
+	at io.debezium.connector.jdbc.JdbcSinkConnectorConfig.validate(JdbcSinkConnectorConfig.java:537)
+	at io.debezium.connector.jdbc.JdbcSinkConnectorTask.start(JdbcSinkConnectorTask.java:73)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.initializeAndStart(WorkerSinkTask.java:329)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:202)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:259)
+	at org.apache.kafka.connect.runtime.isolation.Plugins.lambda$withClassLoader$1(Plugins.java:236)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2025-06-24 15:17:10,224 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Resetting generation and member id due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:17:10,224 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Request joining group due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:17:10,225 INFO   ||  Metrics scheduler closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:17:10,225 INFO   ||  Closing reporter org.apache.kafka.common.metrics.JmxReporter   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:17:10,225 INFO   ||  Metrics reporters closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:17:10,226 INFO   ||  App info kafka.consumer for connector-consumer-persons-jdbc-sink-0 unregistered   [org.apache.kafka.common.utils.AppInfoParser]
+2025-06-24 15:17:14,698 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:17:14 +0000] "GET /connectors/persons-jdbc-sink/status HTTP/1.1" 200 1266 "-" "curl/8.9.1" 25   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:17:25,710 INFO   ||  Successfully processed removal of connector 'persons-jdbc-sink'   [org.apache.kafka.connect.storage.KafkaConfigBackingStore]
+2025-06-24 15:17:25,712 INFO   ||  [Worker clientId=connect-1, groupId=1] Connector persons-jdbc-sink config removed   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,712 INFO   ||  [Worker clientId=connect-1, groupId=1] Handling connector-only config update by stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,712 INFO   ||  Stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:25,713 INFO   ||  Scheduled shutdown for WorkerConnector{id=persons-jdbc-sink}   [org.apache.kafka.connect.runtime.WorkerConnector]
+2025-06-24 15:17:25,715 INFO   ||  Completed shutdown for WorkerConnector{id=persons-jdbc-sink}   [org.apache.kafka.connect.runtime.WorkerConnector]
+2025-06-24 15:17:25,715 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:17:25 +0000] "DELETE /connectors/persons-jdbc-sink HTTP/1.1" 204 0 "-" "curl/8.9.1" 72   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:17:25,720 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,721 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,739 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=14, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,751 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=14, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,751 INFO   ||  Stopping connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:25,752 WARN   ||  Ignoring stop request for unowned connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:25,752 INFO   ||  Stopping task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:25,752 WARN   ||  Ignoring await stop request for non-present connector persons-jdbc-sink   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:25,753 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished stopping tasks in preparation for rebalance   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,753 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished flushing status backing store in preparation for rebalance   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,754 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 14 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=19, connectorIds=[postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[persons-jdbc-sink], revokedTaskIds=[persons-jdbc-sink-0], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,754 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 19   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,754 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished starting connectors and tasks   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,754 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,754 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,767 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=15, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,786 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=15, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:25,786 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 15 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=19, connectorIds=[postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,786 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 19   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:25,786 INFO   ||  [Worker clientId=connect-1, groupId=1] Finished starting connectors and tasks   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:36,068 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:17:36 +0000] "DELETE /connectors/persons-jdbc-sink HTTP/1.1" 404 68 "-" "curl/8.9.1" 33   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:17:38,137 INFO   ||  AbstractConfig values: 
+   [org.apache.kafka.common.config.AbstractConfig]
+2025-06-24 15:17:38,169 INFO   ||  [Worker clientId=connect-1, groupId=1] Connector persons-jdbc-sink config updated   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:38,169 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,169 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,174 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:17:38 +0000] "POST /connectors HTTP/1.1" 201 865 "-" "curl/8.9.1" 60   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:17:38,181 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=16, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,192 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=16, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,192 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 16 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=20, connectorIds=[persons-jdbc-sink, postgres-connector], taskIds=[postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:38,193 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 20   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+--
+2025-06-24 15:17:38,227 INFO   ||  [Worker clientId=connect-1, groupId=1] Tasks [persons-jdbc-sink-0] configs updated   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:38,230 INFO   ||  [Worker clientId=connect-1, groupId=1] Rebalance started   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,233 INFO   ||  [Worker clientId=connect-1, groupId=1] (Re-)joining group   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,239 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully joined group with generation Generation{generationId=17, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,246 INFO   ||  [Worker clientId=connect-1, groupId=1] Successfully synced group in generation Generation{generationId=17, memberId='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', protocol='sessioned'}   [org.apache.kafka.connect.runtime.distributed.WorkerCoordinator]
+2025-06-24 15:17:38,247 INFO   ||  [Worker clientId=connect-1, groupId=1] Joined group at generation 17 with protocol version 2 and got assignment: Assignment{error=0, leader='connect-1-5c3bf1d5-d264-4108-b615-bef9271a4903', leaderUrl='http://172.18.0.6:8083/', offset=22, connectorIds=[persons-jdbc-sink, postgres-connector], taskIds=[persons-jdbc-sink-0, postgres-connector-0], revokedConnectorIds=[], revokedTaskIds=[], delay=0} with rebalance delay: 0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:38,247 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting connectors and tasks using config offset 22   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:38,247 INFO   ||  [Worker clientId=connect-1, groupId=1] Starting task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.distributed.DistributedHerder]
+2025-06-24 15:17:38,250 INFO   ||  Creating task persons-jdbc-sink-0   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:38,251 INFO   ||  ConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	transforms = [unwrap]
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+   [org.apache.kafka.connect.runtime.ConnectorConfig]
+2025-06-24 15:17:38,251 INFO   ||  EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.log.enable = true
+--
+2025-06-24 15:17:38,251 INFO   ||  Instantiated task persons-jdbc-sink-0 with version 2.5.4.Final of type io.debezium.connector.jdbc.JdbcSinkConnectorTask   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:38,252 INFO   ||  JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:17:38,252 INFO   ||  JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+   [org.apache.kafka.connect.json.JsonConverterConfig]
+2025-06-24 15:17:38,252 INFO   ||  Set up the key converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:38,252 INFO   ||  Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task persons-jdbc-sink-0 using the connector config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:38,252 INFO   ||  Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task persons-jdbc-sink-0 using the worker config   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:38,253 WARN   ||  The deleted record handling configs "drop.tombstones" and "delete.handling.mode" have been deprecated, please use "delete.tombstone.handling.mode" instead.   [io.debezium.transforms.AbstractExtractNewRecordState]
+2025-06-24 15:17:38,253 INFO   ||  Initializing: org.apache.kafka.connect.runtime.TransformationChain{io.debezium.transforms.ExtractNewRecordState}   [org.apache.kafka.connect.runtime.Worker]
+2025-06-24 15:17:38,253 INFO   ||  SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.debezium.connector.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = true
+	errors.log.include.messages = true
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = all
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	name = persons-jdbc-sink
+	predicates = []
+	tasks.max = 1
+	topics = [dbz.public.persons]
+	topics.regex = 
+--
+	client.id = connector-consumer-persons-jdbc-sink-0
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = connect-persons-jdbc-sink
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+--
+2025-06-24 15:17:38,264 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Subscribed to topic(s): dbz.public.persons   [org.apache.kafka.clients.consumer.KafkaConsumer]
+2025-06-24 15:17:38,267 ERROR  ||  When using UPSERT, please define 'primary.key.mode' and 'primary.key.fields'.   [io.debezium.connector.jdbc.JdbcSinkConnectorTask]
+2025-06-24 15:17:38,267 ERROR  ||  WorkerSinkTask{id=persons-jdbc-sink-0} Task threw an uncaught and unrecoverable exception. Task is being killed and will not recover until manually restarted   [org.apache.kafka.connect.runtime.WorkerTask]
+org.apache.kafka.connect.errors.ConnectException: Error configuring an instance of JdbcSinkConnectorConfig; check the logs for details
+	at io.debezium.connector.jdbc.JdbcSinkConnectorConfig.validate(JdbcSinkConnectorConfig.java:537)
+	at io.debezium.connector.jdbc.JdbcSinkConnectorTask.start(JdbcSinkConnectorTask.java:73)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.initializeAndStart(WorkerSinkTask.java:329)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:202)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:259)
+	at org.apache.kafka.connect.runtime.isolation.Plugins.lambda$withClassLoader$1(Plugins.java:236)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2025-06-24 15:17:38,268 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Resetting generation and member id due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:17:38,268 INFO   ||  [Consumer clientId=connector-consumer-persons-jdbc-sink-0, groupId=connect-persons-jdbc-sink] Request joining group due to: consumer pro-actively leaving the group   [org.apache.kafka.clients.consumer.internals.ConsumerCoordinator]
+2025-06-24 15:17:38,271 INFO   ||  Metrics scheduler closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:17:38,271 INFO   ||  Closing reporter org.apache.kafka.common.metrics.JmxReporter   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:17:38,271 INFO   ||  Metrics reporters closed   [org.apache.kafka.common.metrics.Metrics]
+2025-06-24 15:17:38,271 INFO   ||  App info kafka.consumer for connector-consumer-persons-jdbc-sink-0 unregistered   [org.apache.kafka.common.utils.AppInfoParser]
+2025-06-24 15:18:08,571 INFO   ||  192.168.65.1 - - [24/Jun/2025:15:18:08 +0000] "GET /connectors/persons-jdbc-sink/status HTTP/1.1" 200 1266 "-" "curl/8.9.1" 24   [org.apache.kafka.connect.runtime.rest.RestServer]
+2025-06-24 15:20:10,061 INFO   Postgres|dbz|streaming  First LSN 'LSN{0/1A4FDB8}' received   [io.debezium.connector.postgresql.connection.WalPositionLocator]
+2025-06-24 15:20:10,067 INFO   Postgres|dbz|streaming  WAL resume position 'LSN{0/1A4FDB8}' discovered   [io.debezium.connector.postgresql.PostgresStreamingChangeEventSource]
+2025-06-24 15:20:10,074 INFO   Postgres|dbz|streaming  Connection gracefully closed   [io.debezium.jdbc.JdbcConnection]
+2025-06-24 15:20:10,078 INFO   Postgres|dbz|streaming  Connection gracefully closed   [io.debezium.jdbc.JdbcConnection]
+2025-06-24 15:20:10,129 INFO   Postgres|dbz|streaming  Initializing PgOutput logical decoder publication   [io.debezium.connector.postgresql.connection.PostgresReplicationConnection]
+2025-06-24 15:20:10,163 INFO   Postgres|dbz|streaming  Requested thread factory for connector PostgresConnector, id = dbz named = keep-alive   [io.debezium.util.Threads]
+2025-06-24 15:20:10,164 INFO   Postgres|dbz|streaming  Creating thread debezium-postgresconnector-dbz-keep-alive   [io.debezium.util.Threads]
+2025-06-24 15:20:10,164 INFO   Postgres|dbz|streaming  Processing messages   [io.debezium.connector.postgresql.PostgresStreamingChangeEventSource]
+2025-06-24 15:20:10,171 INFO   Postgres|dbz|streaming  Message with LSN 'LSN{0/1A4FDB8}' arrived, switching off the filtering   [io.debezium.connector.postgresql.connection.WalPositionLocator]
+2025-06-24 15:20:10,824 INFO   ||  2 records sent during previous 00:07:52.022, last recorded offset of {server=dbz} partition is {transaction_id=null, lsn_proc=27590072, messageType=INSERT, lsn=27590072, txId=740, ts_usec=1750778409606295}   [io.debezium.connector.common.BaseSourceTask]
+2025-06-24 15:20:19,022 INFO   ||  WorkerSourceTask{id=postgres-connector-0} Committing offsets for 1 acknowledged messages   [org.apache.kafka.connect.runtime.WorkerSourceTask]
+2025-06-24 15:20:56,972 INFO   ||  [Consumer clientId=1-statuses, groupId=1] Node -1 disconnected.   [org.apache.kafka.clients.NetworkClient]
+2025-06-24 15:20:56,999 INFO   ||  [Consumer clientId=1-offsets, groupId=1] Node -1 disconnected.   [org.apache.kafka.clients.NetworkClient]
+2025-06-24 15:20:57,070 INFO   ||  [Worker clientId=connect-1, groupId=1] Node -1 disconnected.   [org.apache.kafka.clients.NetworkClient]
+2025-06-24 15:20:57,469 INFO   ||  [Consumer clientId=1-configs, groupId=1] Node -1 disconnected.   [org.apache.kafka.clients.NetworkClient]
+2025-06-24 15:21:08,402 INFO   ||  [Producer clientId=1-statuses] Node -1 disconnected.   [org.apache.kafka.clients.NetworkClient]
+2025-06-24 15:21:08,407 INFO   ||  [Producer clientId=1-configs] Node -1 disconnected.   [org.apache.kafka.clients.NetworkClient]
